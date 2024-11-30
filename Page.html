@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR PAGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-red-200 pointer">
+    <div>
+        <div class="flex items-center justify-center header px-8 mt-12 text-semibold font-mono text-bold text-rose-500 text-4xl">
+           <h1>CAN YOU GET ME AN ICECREAM? <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PLEASE!!!</h1>
+        </div>
+        <div class= "flex justify-center items-center hover:">
+            <img src="cute-Photoroom.png" alt="ayooo whyy!" height="400px" width="400px">
+        </div>
+            
+        
+        <div class="flex items-center justify-center text-white font-mono text-bold gap-8 mb-10">
+            <button class="border-2 border-red-300 shadow-pink-700 shadow-md px-4 py-2 mr-20 rounded-lg bg-red-500 active:shadow-none" id="yesButton" onclick="nextpage()"> Yes</button>
+            <button class="border-2 border-red-300 px-4 py-2 ml-20 rounded-lg shadow-pink-700 shadow-md active:shadow-none bg-red-500 absolute transition duration-150 ease-in-out flex-row" id="nobutton" onclick="movepage()">  No  </button>
+        </div>
+
+        <script>
+            function nextpage() {
+                window.location.href = "yes.html"
+            }
+
+            function movepage() {
+                var x = Math.random() * (window.innerWidth - document.getElementById("nobutton").offsetWidth) - 85;
+                var y = Math.random() * (window.innerHeight - document.getElementById("nobutton").offsetHeight) - 48;
+                document.getElementById('nobutton').style.left= `${x}px`;
+                document.getElementById('nobutton').style.top= `${y}px`;
+            }
+        </script>
+
+
+    </div>
+</body>
+</html>
