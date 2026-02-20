@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes & Quotes</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 min-h-screen p-6">
+
+    <div class="max-w-6xl mx-auto">
+
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-bold text-white">Notes & Quotes</h1>
+            <p class="text-white/90 mt-2">Capture your thoughts, get inspired</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <!-- QUOTE CARD -->
+            <section class="bg-white/95 backdrop-blur p-6 rounded-2xl shadow-xl">
+                
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">✨ Daily Inspiration</h2>
+
+                    <button id="newQuoteBtn"
+                        class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition">
+                        New Quote
+                    </button>
+                </div>
+
+                <!-- Quote Box -->
+                <div id="quoteBox" class="p-6 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 min-h-[180px]">
+
+                    <!-- Loading -->
+                    <div id="quoteLoading" class="flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-8 w-8 border-4 border-purple-500 border-t-transparent"></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div id="quoteContent" class="hidden">
+                        <p id="quoteText" class="text-xl text-gray-700 italic"></p>
+                        <p id="quoteAuthor" class="text-right text-purple-600 font-semibold mt-4"></p>
+
+                        <div class="flex gap-2 mt-4">
+                            <button id="copyQuoteBtn"
+                                class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-sm hover:bg-purple-200">
+                                copy
+                            </button>
+
+                            <button id="saveQuoteBtn"
+                                class="bg-pink-100 text-pink-700 px-3 py-1 rounded-lg text-sm hover:bg-pink-200">
+                                 Save as Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="mt-4">
+                    <p class="text-sm text-gray-600 mb-1">Get quotes by category:</p>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button data-tag="inspirational" class="tag-btn bg-purple-100 text-purple-700">Inspirational</button>
+                        <button data-tag="success" class="tag-btn bg-blue-100 text-blue-700">Success</button>
+                        <button data-tag="life" class="tag-btn bg-green-100 text-green-700">Life</button>
+                        <button data-tag="wisdom" class="tag-btn bg-orange-100 text-orange-700">Wisdom</button>
+                        <button data-tag="happiness" class="tag-btn bg-pink-100 text-pink-700">Happiness</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ADD NOTE CARD -->
+            <section class="bg-white/95 backdrop-blur p-6 rounded-2xl shadow-xl">
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">📌 Create Note</h2>
+
+                <input id="noteTitle"
+                    type="text"
+                    placeholder="Note title..."
+                    class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg mb-3 focus:border-purple-500">
+
+                <textarea id="noteContent"
+                    placeholder="Write your thoughts..."
+                    class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg h-32 resize-none mb-3 focus:border-purple-500"></textarea>
+
+                <div class="flex gap-2">
+                    <button id="addNoteBtn"
+                        class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition">
+                        ➕ Add Note
+                    </button>
+
+                    <button id="clearFormBtn"
+                        class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300">
+                        Clear
+                    </button>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- NOTES LIST -->
+        <section class="mt-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl text-white font-bold">📚 Your Notes (<span id="noteCount">0</span>)</h2>
+
+                <button id="clearAllBtn"
+                    class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-600">
+                    Clear All
+                </button>
+            </div>
+
+            <div id="notesList" class="grid md:grid-cols-3 gap-4 text-white"></div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
